@@ -10,7 +10,6 @@ int precedence(char op) {
 }
 
 std::string infx2pstfx(const std::string& inf) {
- {
   TStack<char, 100> stack;
   std::string result;
 
@@ -24,20 +23,15 @@ std::string infx2pstfx(const std::string& inf) {
       }
       --i;
       result += ' ';
-    }
-
-    else if (token == '(')
+    } else if (token == '(') {
       stack.push(token);
-
-    else if (token==')') {
+    } else if (token==')') {
       while (!stack.isEmpty() && stack.top() != '(') {
         result += stack.pop();
         result += ' ';
       }
       stack.pop();
-    }
-
-    else if (token == '+' || token == '-' || token == '*' || token == '/') {
+    } else if (token == '+' || token == '-' || token == '*' || token == '/') {
       while (!stack.isEmpty() && precedence(stack.top()) >= precedence(token)) {
         result += stack.pop();
         result += ' ';
@@ -57,8 +51,7 @@ std::string infx2pstfx(const std::string& inf) {
   return result;
 }
 
-
-int eval(const std::string& pref) {
+int eval(const std::string& post) {
   TStack<int, 100> stack;
   std::string num;
 
@@ -75,8 +68,7 @@ int eval(const std::string& pref) {
       }
       --i;
       stack.push(std::stoi(num));
-    }
-    else {
+    } else {
       int b = stack.pop();
       int a = stack.pop();
       switch (token) {
