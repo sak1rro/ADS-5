@@ -1,14 +1,15 @@
 // Copyright 2021 NNTU-CS
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
+#include <stdexcept>
 
 template<typename T, int size>
 class TStack {
-private:
+ private:
   T data[size];
   int topIndex;
 
-public:
+ public:
   TStack(): topIndex(-1) {}
 
   bool isEmpty()const { return topIndex == -1; }
