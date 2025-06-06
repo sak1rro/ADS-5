@@ -25,7 +25,7 @@ std::string infx2pstfx(const std::string& inf) {
       result += ' ';
     } else if (token == '(') {
       stack.push(token);
-    } else if (token==')') {
+    } else if (token == ')') {
       while (!stack.isEmpty() && stack.top() != '(') {
         result += stack.pop();
         result += ' ';
