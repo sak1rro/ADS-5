@@ -3,10 +3,10 @@
 #define INCLUDE_TSTACK_H_
 #include <stdexcept>
 
-template<typename T, int size>
+template<typename T, int kStackSize>
 class TStack {
  private:
-  T data[size];
+  T data[kStackSize];
   int topIndex;
 
  public:
