@@ -10,7 +10,8 @@ int precedence(char op) {
 }
 
 std::string infx2pstfx(const std::string& inf) {
-  TStack<char, 100> stack;
+  const int kStackSize = 100;
+  TStack<char, kStackSize> stack;
   std::string result;
 
   for (size_t i = 0; i < inf.length(); ++i) {
