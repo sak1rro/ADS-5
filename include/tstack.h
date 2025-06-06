@@ -15,7 +15,7 @@ class TStack {
   bool isEmpty()const { return topIndex == -1; }
 
   void push(const T& value) {
-    if (topIndex >= size)
+    if (topIndex >= kStackSize)
       throw std::overflow_error("Stack overflow");
     data[++topIndex] = value;
   }
